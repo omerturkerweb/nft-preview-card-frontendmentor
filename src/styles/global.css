@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+:root {
+  /* Colors */
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --dark-white: rgba(255, 255, 255, 0.368);
+
+  /* Neutral */
+  --shadow1: #0c192c;
+  --shadow2: #0c1729;
+  --card-bg: #15263d;
+  --main-bg: #0d1a2d;
+  --white: hsl(0, 0%, 100%);
+  --shadow: hsl(216, 50%, 16%);
+  /* Typography */
+  --font-size: 18px;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-bg);
+  font-size: var(--font-size);
+  font-family: var(--font-outfit);
+}
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-component-shadow::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  background-color: var(--shadow2);
+
+  z-index: -1;
+}
+.border-bottom-dark-white {
+  border-bottom: 1px solid var(--dark-white);
+}
+.card-component-image::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--cyan);
+  border-radius: 10px;
+  transition: all 0.4s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card-component-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  background: url("../images/icon-view.svg") no-repeat center;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s;
+  opacity: 0;
+  visibility: hidden;
+}
+.card-component-image:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+.card-component-image:hover::after {
+  visibility: visible;
+  opacity: 0.5;
+}
